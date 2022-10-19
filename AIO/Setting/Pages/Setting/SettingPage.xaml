@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage NavigationPage.HasNavigationBar="False"
+    x:DataType="StackLayout"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AIO.MarkupExtensions"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    x:Class="AIO.SettingPage">
+    <AbsoluteLayout x:Name="settingpage" BackgroundColor="Beige" Opacity="0.5">
+
+        <AbsoluteLayout.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#834d9b" Offset="0.3"/>
+                <GradientStop Color="#d04ed6" Offset="1"/>
+            </LinearGradientBrush>
+        </AbsoluteLayout.Background>
+
+       <ScrollView HeightRequest="845" WidthRequest="390">
+            <StackLayout Spacing="30">
+                <AbsoluteLayout HorizontalOptions="CenterAndExpand">
+                    <Frame WidthRequest="260" HeightRequest="307" CornerRadius="30" BackgroundColor="Beige"/>
+                    <StackLayout WidthRequest="300" HeightRequest="307">
+                        <Label Text="회원 정보" FontSize="40" FontAttributes="Bold" WidthRequest="300" Margin="20" HorizontalTextAlignment="Center"/>
+                        <Label Text="이름 : " WidthRequest="240" HorizontalOptions="Center" FontSize="20"/>
+                        <Label Text="전화번호 : " WidthRequest="240" HorizontalOptions="Center" FontSize="20"/>
+                        <Label Text="생년월일 : " WidthRequest="240" HorizontalOptions="Center" FontSize="20"/>
+                        <Label Text="재학 학교 : " WidthRequest="240" HorizontalOptions="Center" FontSize="20"/>
+                        <Label Text="아이디 : " WidthRequest="240" HorizontalOptions="Center" FontSize="20"/>
+                        <Label Text="비밀번호 : " WidthRequest="240" HorizontalOptions="Center" FontSize="20"/>
+                        <Button Text="회원 정보 수정" WidthRequest="240" HorizontalOptions="Center" BorderColor="Black" BackgroundColor="White" BorderWidth="1" CornerRadius="10" Margin="10"/>
+                    </StackLayout>
+                </AbsoluteLayout>
+
+                <AbsoluteLayout HorizontalOptions="CenterAndExpand">
+                    <Frame WidthRequest="260" HeightRequest="730" CornerRadius="30" BackgroundColor="Beige"/>
+                    <StackLayout WidthRequest="300" HeightRequest="730" Spacing="10">
+
+                        <Label Text="버튼 색상" FontSize="40" FontAttributes="Bold" WidthRequest="300" Margin="20" HorizontalTextAlignment="Center"/>
+
+                        <Button x:Name="Button_Color_Mode_Button" Text="단색" WidthRequest="240" HorizontalOptions="Center" BorderColor="Black" BackgroundColor="White" BorderWidth="1" CornerRadius="10" Pressed="Button_Pressed" Released="Button_Released"/>
+
+                        <skia:SKCanvasView x:Name="SkCanvasView1" ClassId="1" IsEnabled="False" HorizontalOptions="Center" WidthRequest="240" HeightRequest="240" EnableTouchEvents="True" PaintSurface="SkCanvasView_OnPaintSurface" Touch="SkCanvasView_OnTouch" />
+
+                        <StackLayout x:Name="ColorChangeLayout1" Orientation="Horizontal" HorizontalOptions="Center">
+                            <Button ClassId="1" Text="색상 변경" WidthRequest="240" BorderColor="Black" BackgroundColor="White" BorderWidth="1" CornerRadius="10" Pressed="Button_Pressed" Released="Button_Released"/>
+                        </StackLayout>
+
+                        <skia:SKCanvasView x:Name="SkCanvasView2" ClassId="2" IsEnabled="False" HorizontalOptions="Center" WidthRequest="240" HeightRequest="240" EnableTouchEvents="True" PaintSurface="SkCanvasView_OnPaintSurface" Touch="SkCanvasView_OnTouch" />
+
+                        <StackLayout x:Name="ColorChangeLayout2" Orientation="Horizontal" HorizontalOptions="Center">
+                            <Button ClassId="2" Text="색상 변경" WidthRequest="240" BorderColor="Black" BackgroundColor="White" BorderWidth="1" CornerRadius="10" Pressed="Button_Pressed" Released="Button_Released"/>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </AbsoluteLayout>
+
+                <AbsoluteLayout HorizontalOptions="CenterAndExpand">
+                    <Frame WidthRequest="260" HeightRequest="730" CornerRadius="30" BackgroundColor="Beige"/>
+                    <StackLayout WidthRequest="300" HeightRequest="730" Spacing="10">
+
+                        <Label Text="배경 색상" FontSize="40" FontAttributes="Bold" WidthRequest="300" Margin="20" HorizontalTextAlignment="Center"/>
+
+                        <Button x:Name="Backgroud_Color_Mode_Button" Text="단색" WidthRequest="240" HorizontalOptions="Center" BorderColor="Black" BackgroundColor="White" BorderWidth="1" CornerRadius="10" Pressed="Button_Pressed" Released="Button_Released"/>
+
+                        <skia:SKCanvasView x:Name="SkCanvasView3" ClassId="3" IsEnabled="False" HorizontalOptions="Center" WidthRequest="240" HeightRequest="240" EnableTouchEvents="True" PaintSurface="SkCanvasView_OnPaintSurface" Touch="SkCanvasView_OnTouch" />
+
+                        <StackLayout x:Name="ColorChangeLayout3" Orientation="Horizontal" HorizontalOptions="Center">
+                            <Button ClassId="3" Text="색상 변경" WidthRequest="240" BorderColor="Black" BackgroundColor="White" BorderWidth="1" CornerRadius="10" Pressed="Button_Pressed" Released="Button_Released"/>
+                        </StackLayout>
+
+                        <skia:SKCanvasView x:Name="SkCanvasView4" ClassId="4" IsEnabled="False" HorizontalOptions="Center" WidthRequest="240" HeightRequest="240" EnableTouchEvents="True" PaintSurface="SkCanvasView_OnPaintSurface" Touch="SkCanvasView_OnTouch" />
+
+                        <StackLayout x:Name="ColorChangeLayout4" Orientation="Horizontal" HorizontalOptions="Center">
+                            <Button ClassId="4" Text="색상 변경" WidthRequest="240" BorderColor="Black" BackgroundColor="White" BorderWidth="1" CornerRadius="10" Pressed="Button_Pressed" Released="Button_Released"/>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </AbsoluteLayout>
+
+                <Frame CornerRadius="30" WidthRequest="260" HorizontalOptions="Center" HeightRequest="50" BackgroundColor="Beige">
+                    <Button x:Name="LogOut" BorderColor="Black" BackgroundColor="White" BorderWidth="1" Text="로그아웃" CornerRadius="20" Pressed="LogOut_Pressed" Released="LogOut_Released"/>
+                </Frame>
+
+                <Frame HeightRequest="70" BackgroundColor="Transparent"/>
+
+            </StackLayout>
+        </ScrollView>
+        <Frame BackgroundColor="#b33F51B5" HorizontalOptions="Center" VerticalOptions="End" TranslationX="35" TranslationY="719" HeightRequest="76" WidthRequest="320" CornerRadius="25" Padding="0" IsVisible="True">
+            <AbsoluteLayout VerticalOptions="CenterAndExpand">
+                <Frame x:Name="home" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="10">
+                    <ImageButton ClassId="homebutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.home.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                </Frame>
+                <Frame x:Name="search" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="90">
+                    <ImageButton ClassId="searchbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.search.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                </Frame>
+                <Frame x:Name="new" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="170">
+                    <ImageButton ClassId="newbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.magnify.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                </Frame>
+                <Frame x:Name="refresh" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="250">
+                    <ImageButton ClassId="refreshbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.refresh.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                </Frame>
+            </AbsoluteLayout>
+        </Frame>
+    </AbsoluteLayout>
+</ContentPage>

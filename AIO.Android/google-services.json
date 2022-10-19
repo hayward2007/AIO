@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "427133550226",
+    "firebase_url": "https://sunae-3cf06-default-rtdb.firebaseio.com",
+    "project_id": "sunae-3cf06",
+    "storage_bucket": "sunae-3cf06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427133550226:android:0aef420c7628bb914cb04b",
+        "android_client_info": {
+          "package_name": "h.k_industry.sunae"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "427133550226-pk8pednb1m4f3k080lp865fncbjum5t5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk7CRkOg1o5hO_aV3x_7-O6PO9zMjIzgQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "427133550226-pk8pednb1m4f3k080lp865fncbjum5t5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "427133550226-k9l1ta9eubig0rmqit3cm71epnnuh4l2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "H.K-Industry.Sunae"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

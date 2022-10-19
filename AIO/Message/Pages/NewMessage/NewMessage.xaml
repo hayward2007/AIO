@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage NavigationPage.HasNavigationBar="False"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AIO.MarkupExtensions"
+    x:Class="AIO.NewMessage">
+    <ContentPage.Content>
+        <StackLayout x:Name="newmessagepage" Opacity="0.5">
+
+            <StackLayout.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#834d9b" Offset="0.3"/>
+                    <GradientStop Color="#d04ed6" Offset="1"/>
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
+            <Label HorizontalOptions="Center" TranslationY="80" HeightRequest="30" Text="채팅방 생성" FontSize="Large" FontAttributes="Bold"/>
+
+
+            <ScrollView x:Name="ScrollView" TranslationY="35" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HeightRequest="570">
+                <StackLayout x:Name="StackLayout" Spacing="20">
+                    <Frame CornerRadius="25" WidthRequest="260" HeightRequest="70" BackgroundColor="Beige" Padding="20">
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="채팅방 이름" FontSize="20" HorizontalOptions="CenterAndExpand"/>
+                            <Frame Margin="7.5" WidthRequest="100" Padding="0" HasShadow="False" BorderColor="Black" CornerRadius="15" BackgroundColor="White" Opacity="0.75">
+                                <Entry x:Name="NameEntry" HorizontalTextAlignment="Center" BackgroundColor="Transparent"/>
+                            </Frame>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="25" WidthRequest="260" HeightRequest="420" BackgroundColor="Beige">
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="인원 초대" FontSize="20" HorizontalOptions="CenterAndExpand"/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" HeightRequest="35" TranslationY="7.5">
+                                <Frame WidthRequest="220" Padding="0" HasShadow="False" BorderColor="Black" CornerRadius="15" BackgroundColor="White" Opacity="0.75">
+                                    <Entry x:Name="SearchEntry" Placeholder="이름 또는 ID 검색" PlaceholderColor="Black" HorizontalTextAlignment="Center" BackgroundColor="Transparent"/>
+                                </Frame>
+                                <ImageButton Source="{local:EmbeddedImage ResourceId=AIO.Images.search.png}" Pressed="SearchButton_Pressed" Released="SearchButton_Released"/>
+                            </StackLayout>
+                            <Frame TranslationY="10" CornerRadius="20" BackgroundColor="White" BorderColor="Black" HeightRequest="300" HasShadow="False">
+                                <ScrollView>
+                                    <StackLayout x:Name="SearchStackLayout" Spacing="20">
+                                    </StackLayout>
+                                </ScrollView>
+                            </Frame>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="15" TranslationY="18" BackgroundColor="Beige" HeightRequest="20">
+                        <Button Text="채팅방 생성하기" TextColor="Black" Pressed="NewMessageButton_Pressed" Released="NewMessageButton_Released"/>
+                    </Frame>
+                    <Frame HeightRequest="1" BackgroundColor="Transparent"/>
+                </StackLayout>
+            </ScrollView>
+
+            <Frame BackgroundColor="#b33F51B5" HorizontalOptions="Center" VerticalOptions="End" TranslationY="-50" HeightRequest="76" WidthRequest="320" CornerRadius="25" Padding="0" HasShadow="False">
+                <AbsoluteLayout VerticalOptions="CenterAndExpand">
+                    <Frame x:Name="home" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="10">
+                        <ImageButton ClassId="homebutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.home.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                    </Frame>
+                    <Frame x:Name="search" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="90">
+                        <ImageButton ClassId="searchbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.search.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                    </Frame>
+                    <Frame x:Name="new" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="170">
+                        <ImageButton ClassId="newbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.magnify.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                    </Frame>
+                    <Frame x:Name="refresh" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="250">
+                        <ImageButton ClassId="refreshbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.refresh.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                    </Frame>
+                </AbsoluteLayout>
+            </Frame>
+
+
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

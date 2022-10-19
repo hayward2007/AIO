@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage NavigationPage.HasNavigationBar="False"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+    xmlns:local="clr-namespace:AIO.MarkupExtensions"
+    x:Class="AIO.SchedulePage">
+    <StackLayout x:Name="schedulepage" BackgroundColor="Beige" Opacity="0.5">
+
+        <!--<StackLayout.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#834d9b" Offset="0.3"/>
+                <GradientStop Color="#d04ed6" Offset="1"/>
+            </LinearGradientBrush>
+        </StackLayout.Background>-->
+
+        <AbsoluteLayout VerticalOptions="CenterAndExpand" WidthRequest="360" HorizontalOptions="CenterAndExpand">
+
+            <syncfusion:SfCalendar x:Name="sfcalendar" BlackoutDatesViewMode="Stripes" ShowInlineEvents="True" InlineViewMode="Agenda" AgendaViewHeight="150" MaximumEventIndicatorCount="3" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="360" HeightRequest="720" Scale="0.9" MonthChanged="sfcalendar_MonthChanged">
+                <syncfusion:SfCalendar.MonthViewSettings>
+                    <syncfusion:MonthViewSettings CurrentMonthBackgroundColor="Transparent" PreviousMonthBackgroundColor="Transparent" DayHeaderBackgroundColor="Transparent" InlineBackgroundColor="Transparent" HeaderBackgroundColor="Transparent" TodaySelectionBackgroundColor="#3F51B5"/>
+                    <!--<syncfusion:MonthViewSettings CurrentMonthBackgroundColor="Transparent" PreviousMonthBackgroundColor="Transparent" DayHeaderBackgroundColor="Transparent" InlineBackgroundColor="Transparent" HeaderBackgroundColor="Transparent" TodaySelectionBackgroundColor="#3F51B5" CurrentMonthTextColor="White" DayHeaderTextColor="White" HeaderTextColor="White" PreviousMonthTextColor="LightGray" InlineTextColor="White"/>-->
+                </syncfusion:SfCalendar.MonthViewSettings>
+            </syncfusion:SfCalendar>
+
+
+            <AbsoluteLayout x:Name="Search_frame" HeightRequest="100" TranslationY="-125">
+                <Frame HeightRequest="100" TranslationX="-15" WidthRequest="390" BackgroundColor="#222831" CornerRadius="45" Padding="0"/>
+
+                <Frame TranslationX="50" TranslationY="50" WidthRequest="250" Padding="0" HasShadow="False" BorderColor="Black" CornerRadius="15" BackgroundColor="White" Opacity="0.75">
+                    <Entry x:Name="SearchEntry" HorizontalTextAlignment="Center" BackgroundColor="Transparent" Placeholder="검색어 입력"/>
+                </Frame>
+                <ImageButton x:Name="goSearch" ClassId="gosearchbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.search.png}" Scale="0.6" TranslationX="300" TranslationY="45" Pressed="SearchButton_Pressed" Released="SearchButton_Released"/>
+            </AbsoluteLayout>
+
+            <ActivityIndicator x:Name="loading_indicator" IsRunning="True" Scale="3" TranslationX="170" TranslationY="300" Color="Black"/>
+        </AbsoluteLayout>
+
+        <Frame BackgroundColor="#b33F51B5" HorizontalOptions="Center" VerticalOptions="End" TranslationY="-50" HeightRequest="76" WidthRequest="320" CornerRadius="25" Padding="0" IsVisible="True">
+            <AbsoluteLayout VerticalOptions="CenterAndExpand">
+                <Frame x:Name="home" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="10">
+                    <ImageButton ClassId="homebutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.home.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                </Frame>
+                <Frame x:Name="search" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="90">
+                    <ImageButton ClassId="searchbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.search.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                </Frame>
+                <Frame x:Name="new" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="170">
+                    <ImageButton ClassId="newbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.magnify.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                </Frame>
+                <Frame x:Name="refresh" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="250">
+                    <ImageButton ClassId="refreshbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.refresh.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                </Frame>
+            </AbsoluteLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>

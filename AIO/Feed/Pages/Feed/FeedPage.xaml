@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage NavigationPage.HasNavigationBar="False"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AIO.FeedPage"
+    xmlns:local="clr-namespace:AIO.MarkupExtensions">
+    <ContentPage.Content>
+        <!--<AbsoluteLayout x:Name="feedpage" BackgroundColor="#222831" Opacity="0.5">-->
+        <AbsoluteLayout x:Name="feedpage" BackgroundColor="Beige" Opacity="0.5">
+
+            <AbsoluteLayout.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#834d9b" Offset="0.3"/>
+                    <GradientStop Color="#d04ed6" Offset="1"/>
+                </LinearGradientBrush>
+            </AbsoluteLayout.Background>
+
+            <ScrollView x:Name="ScrollView"  HeightRequest="845" WidthRequest="390" Scrolled="ScrollView_Scrolled">
+                <StackLayout x:Name="feedlayout" Spacing="65">
+                </StackLayout>
+            </ScrollView>
+
+
+            <Frame BackgroundColor="#b33F51B5" HorizontalOptions="Center" VerticalOptions="End" TranslationX="35" TranslationY="719" HeightRequest="76" WidthRequest="320" CornerRadius="25" Padding="0" IsVisible="True">
+                <AbsoluteLayout VerticalOptions="CenterAndExpand">
+                    <Frame x:Name="home" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="10">
+                        <ImageButton ClassId="homebutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.home.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                    </Frame>
+                    <Frame x:Name="search" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="90">
+                        <ImageButton ClassId="searchbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.search.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                    </Frame>
+                    <Frame x:Name="new" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="170">
+                        <ImageButton ClassId="newbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.magnify.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                    </Frame>
+                    <Frame x:Name="refresh" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="250">
+                        <ImageButton ClassId="refreshbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.refresh.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                    </Frame>
+                </AbsoluteLayout>
+            </Frame>
+
+            <AbsoluteLayout x:Name="Search_frame" HeightRequest="100" WidthRequest="390" TranslationY="-110">
+                <Frame HeightRequest="100" WidthRequest="390" BackgroundColor="#222831" CornerRadius="45" Padding="0"/>
+                <Entry x:Name="writeSearch" WidthRequest="250" TranslationX="50" TranslationY="50" BackgroundColor="#676D78" Placeholder="제목 검색"/>
+                <ImageButton x:Name="goSearch" ClassId="gosearchbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.search.png}" Scale="0.6" TranslationX="300" TranslationY="45" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+            </AbsoluteLayout>
+
+            <ActivityIndicator x:Name="loading_indicator" IsRunning="True" Scale="3" TranslationX="185" TranslationY="400" Color="Black"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

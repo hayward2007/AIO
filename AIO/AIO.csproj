@@ -1,0 +1,191 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <_FunctionsSkipCleanOutput>true</_FunctionsSkipCleanOutput>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="6.22.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="20.2.0.46" />
+    <PackageReference Include="FireSharp" Version="2.0.4" />
+    <PackageReference Include="CoolSms" Version="1.1.1" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.1" />
+    <PackageReference Include="FirebaseDatabase.net" Version="4.1.0" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" />
+    <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision" Version="7.0.1" />
+    <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
+    <PackageReference Include="Microsoft.ProjectOxford.Face.DotNetStandard" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="FirebaseDatabase.net" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Syncfusion.Xamarin.SfCalendar" />
+    <None Remove="User_Data\" />
+    <None Remove="Login_Register\Pages\" />
+    <None Remove="Login_Register\Classes\" />
+    <None Remove="FireSharp" />
+    <None Remove="CoolSms" />
+    <None Remove="AppStart\" />
+    <None Remove="Feed\" />
+    <None Remove="EmbeddingResource\" />
+    <None Remove="Login_Register\Pages\Login\" />
+    <None Remove="Feed\Classes\" />
+    <None Remove="Feed\Pages\" />
+    <None Remove="Feed\Pages\Feed\" />
+    <None Remove="Main\" />
+    <None Remove="Main\Classes\" />
+    <None Remove="Main\Pages\" />
+    <None Remove="Message\" />
+    <None Remove="Message\Pages\" />
+    <None Remove="Message\Classes\" />
+    <None Remove="Main\Pages\Main\" />
+    <None Remove="Message\Pages\Contact\" />
+    <None Remove="Message\Pages\Message\" />
+    <None Remove="Images\" />
+    <None Remove="Images\close.png" />
+    <None Remove="Images\feeds.png" />
+    <None Remove="Images\home.png" />
+    <None Remove="Images\magnify.png" />
+    <None Remove="Images\messages.png" />
+    <None Remove="Images\new.png" />
+    <None Remove="Images\refresh.png" />
+    <None Remove="Images\schedules.png" />
+    <None Remove="Images\settings.png" />
+    <None Remove="Images\up.png" />
+    <None Remove="Schedule\" />
+    <None Remove="Schedule\Classes\" />
+    <None Remove="Schedule\Pages\" />
+    <None Remove="Schedule\Pages\Schedule\" />
+    <None Remove="Setting\" />
+    <None Remove="Setting\Classes\" />
+    <None Remove="Setting\Pages\" />
+    <None Remove="Setting\Pages\Setting\" />
+    <None Remove="SkiaSharp.Views.Forms" />
+    <None Remove="Message\Pages\NewMessage\" />
+    <None Remove="Images\back.png" />
+    <None Remove="Images\send.png" />
+    <None Remove="Selenium.WebDriver" />
+    <None Remove="Selenium.Support" />
+    <None Remove="Selenium.WebDriver.ChromeDriver" />
+    <None Remove="DotNetSeleniumExtras.WaitHelpers" />
+    <None Remove="CloudNative.CloudEvents" />
+    <None Remove="Microsoft.Extensions.Logging" />
+    <None Remove="Google.Events.Protobuf" />
+    <None Remove="Plugin.Firebase" />
+    <None Remove="FirebaseAdmin" />
+    <None Remove="UI\" />
+    <None Remove="UI\MainMenuPage_Top_Gradient.png" />
+    <None Remove="User_InterFace\MainMenuPage_Top_Gradient.png" />
+    <None Remove="Xamarin.Firebase.iOS.MLKit.Common" />
+    <None Remove="Xamarin.Firebase.iOS.MLKit" />
+    <None Remove="Images\search.png" />
+    <None Remove="System.Drawing.Common" />
+    <None Remove="Xamarin.Tesseract" />
+    <None Remove="XLabs.Platform" />
+    <None Remove="XLabs.IoC.TinyIoC" />
+    <None Remove="Xamarin.CommunityToolkit" />
+    <None Remove="AppStart\Classes\" />
+    <None Remove="AppStart\Pages\" />
+    <None Remove="AppStart\Pages\StartPage\" />
+    <None Remove="AppStart\Pages\App\" />
+    <None Remove="Xamarin.iOS" />
+    <None Remove="Xam.Plugin.Media" />
+    <None Remove="Microsoft.Azure.CognitiveServices.Vision.ComputerVision" />
+    <None Remove="FirebaseStorage.net" />
+    <None Remove="Register\" />
+    <None Remove="Register\Classes\" />
+    <None Remove="Register\Pages\" />
+    <None Remove="Register\Pages\Camera\" />
+    <None Remove="Register\Pages\Certification\" />
+    <None Remove="Register\Pages\Register\" />
+    <None Remove="Login\Pages\LicenseDetectionPage\" />
+    <None Remove="Microsoft.ProjectOxford.Face.DotNetStandard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="User_Data\" />
+    <Folder Include="Login\Pages\" />
+    <Folder Include="Login\Classes\" />
+    <Folder Include="AppStart\" />
+    <Folder Include="Feed\" />
+    <Folder Include="EmbeddingResource\" />
+    <Folder Include="Login\Pages\Login\" />
+    <Folder Include="Feed\Classes\" />
+    <Folder Include="Feed\Pages\" />
+    <Folder Include="Feed\Pages\Feed\" />
+    <Folder Include="Main\" />
+    <Folder Include="Main\Classes\" />
+    <Folder Include="Main\Pages\" />
+    <Folder Include="Message\" />
+    <Folder Include="Message\Pages\" />
+    <Folder Include="Message\Classes\" />
+    <Folder Include="Main\Pages\Main\" />
+    <Folder Include="Message\Pages\Contact\" />
+    <Folder Include="Message\Pages\Message\" />
+    <Folder Include="Images\" />
+    <Folder Include="Schedule\" />
+    <Folder Include="Schedule\Classes\" />
+    <Folder Include="Schedule\Pages\" />
+    <Folder Include="Schedule\Pages\Schedule\" />
+    <Folder Include="Setting\" />
+    <Folder Include="Setting\Classes\" />
+    <Folder Include="Setting\Pages\" />
+    <Folder Include="Setting\Pages\Setting\" />
+    <Folder Include="Message\Pages\NewMessage\" />
+    <Folder Include="User_InterFace\" />
+    <Folder Include="AppStart\Classes\" />
+    <Folder Include="AppStart\Pages\" />
+    <Folder Include="AppStart\Pages\StartPage\" />
+    <Folder Include="AppStart\Pages\App\" />
+    <Folder Include="Register\" />
+    <Folder Include="Register\Classes\" />
+    <Folder Include="Register\Pages\" />
+    <Folder Include="Register\Pages\Camera\" />
+    <Folder Include="Register\Pages\Certification\" />
+    <Folder Include="Register\Pages\Register\" />
+    <Folder Include="Login\Pages\LicenseDetectionPage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Login_Register\Pages\Login\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="AppStart\Pages\App\App.xaml.cs">
+      <DependentUpon>..\..\App\App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\close.png" />
+    <EmbeddedResource Include="Images\feeds.png" />
+    <EmbeddedResource Include="Images\home.png" />
+    <EmbeddedResource Include="Images\magnify.png" />
+    <EmbeddedResource Include="Images\messages.png" />
+    <EmbeddedResource Include="Images\new.png" />
+    <EmbeddedResource Include="Images\refresh.png" />
+    <EmbeddedResource Include="Images\schedules.png" />
+    <EmbeddedResource Include="Images\settings.png" />
+    <EmbeddedResource Include="Images\up.png" />
+    <EmbeddedResource Include="Images\back.png" />
+    <EmbeddedResource Include="Images\send.png" />
+    <EmbeddedResource Include="User_InterFace\MainMenuPage_Top_Gradient.png" />
+    <EmbeddedResource Include="Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Drawing.Common">
+      <HintPath>..\..\..\..\..\Library\Frameworks\Xamarin.Android.framework\Versions\13.0.0.0\lib\xamarin.android\xbuild-frameworks\MonoAndroid\v1.0\Facades\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.iOS">
+      <HintPath>..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\15.12.0.2\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

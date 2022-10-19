@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage NavigationPage.HasNavigationBar="False"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AIO.MarkupExtensions"
+    x:Class="AIO.RegisterPage">
+    <ContentPage.Content>
+         <StackLayout x:Name="register_page" WidthRequest="200" Opacity="0.5">
+            <StackLayout.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#f2709c" Offset="1"/>
+                    <GradientStop Color="#ff9472" Offset="0.3"/>
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
+            <Label HorizontalOptions="Center" TranslationY="150" HeightRequest="30" Text="회원 가입" FontSize="Large" FontAttributes="Bold"/>
+            <Label HorizontalOptions="Center" TranslationY="200" WidthRequest="250" Text="이름" HorizontalTextAlignment="Start"/>
+            <Label HorizontalOptions="Center" TranslationY="245" WidthRequest="250" Text="생년 월 일" HorizontalTextAlignment="Start"/>
+            <Label HorizontalOptions="Center" TranslationY="290" WidthRequest="250" Text="학급 정보"/>
+            <Label HorizontalOptions="Center" TranslationY="335" WidthRequest="250" Text="ID" HorizontalTextAlignment="Start"/>
+            <Label HorizontalOptions="Center" TranslationY="380" WidthRequest="250" Text="PASSWORD" HorizontalTextAlignment="Start"/>
+            <Label x:Name="register_error" HorizontalOptions="Center" TranslationY="505" Text=" " IsVisible="true"/>
+
+            <DatePicker x:Name="user_birth" HorizontalOptions="Center" TranslationY="135" WidthRequest="250" Format="         yyyy 년  MM 월  dd 일"/>
+            <Picker x:Name="user_study_info" HorizontalOptions="Center" TranslationY="166" WidthRequest="250" HorizontalTextAlignment="Center">
+              <Picker.Items>
+                <x:String>수내중학교</x:String>
+                <x:String>내정중학교</x:String>
+                <x:String>샛별중학교</x:String>
+                <x:String>분당중학교</x:String>
+                <x:String>백현중학교</x:String>
+                <x:String>이매중학교</x:String>
+              </Picker.Items>
+            </Picker>
+
+            <Entry x:Name="user_name_entry" HorizontalOptions="Center" TranslationY="-15" WidthRequest="250" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="user_id_entry" HorizontalOptions="Center" TranslationY="157" WidthRequest="250" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="user_password_entry" HorizontalOptions="Center" TranslationY="190" WidthRequest="250" HorizontalTextAlignment="Center" IsPassword="True"/>
+
+            <ImageButton x:Name="close" ClassId="closebutton" HorizontalOptions="Start" TranslationX="40" TranslationY="-340" Source="{local:EmbeddedImage ResourceId=AIO.Images.close.png}" Scale="2.3" Pressed="ImageButton_Pressed" Released="ImageButton_Released"/>
+            <Button x:Name="photo" ClassId="photobutton" HorizontalOptions="Center" TranslationY="170" WidthRequest="250" BorderColor="Black" BorderWidth="1" Text="증명 사진 촬영" TextColor="Black" Pressed="photo_Pressed" Released="photo_Released"/>
+            <Button x:Name="register" ClassId="registerbutton" HorizontalOptions="Center" TranslationY="215" WidthRequest="250" BorderColor="Black" BorderWidth="1" Text="휴대폰 인증" TextColor="Black" Pressed="Button_Pressed" Released="Button_Released"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

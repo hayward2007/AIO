@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage NavigationPage.HasNavigationBar="False"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AIO.MarkupExtensions"
+    xmlns:time="clr-namespace:System;assembly=mscorlib"
+    x:Class="AIO.MainMenuPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="mainmenu_page" Opacity="0.5">
+            <StackLayout.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#9d40bb" Offset="0.3"/>
+                    <GradientStop Color="#6e48aa" Offset="1"/>
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
+            <AbsoluteLayout HorizontalOptions="CenterAndExpand">
+                <Image Source="{local:EmbeddedImage ResourceId=AIO.User_InterFace.MainMenuPage_Top_Gradient.png}" Aspect="AspectFit"/>
+                    
+                <StackLayout Orientation="Horizontal" TranslationX="40" TranslationY="88" Spacing="-10">
+                    <Label Text="안녕하세요
+                        형석님" FontSize="40" FontAttributes="Bold" WidthRequest="200" />
+
+                    <Frame HeightRequest="50" WidthRequest="80" VerticalOptions="CenterAndExpand" CornerRadius="20" BackgroundColor="Transparent" BorderColor="Black" HasShadow="False">
+                        <StackLayout>
+                            <Label Text="{Binding Source={x:Static time:DateTime.Now}, StringFormat='{0:HH : mm}'}" FontSize="25" FontAttributes="Bold"/>
+                            <Label Text="{Binding Source={x:Static time:DateTime.Now}, StringFormat='{0:yyyy MM d}'}" FontSize="15"/>
+                        </StackLayout>
+                    </Frame>
+
+
+                </StackLayout>
+
+                <Frame TranslationX="40" TranslationY="215" WidthRequest="310" Opacity="0.7" HeightRequest="3" Padding="0" CornerRadius="2" BackgroundColor="Black" BorderColor="Black" HasShadow="False"/>
+
+                <AbsoluteLayout x:Name="Feed" HeightRequest="290" WidthRequest="290" TranslationX="30" TranslationY="250">
+
+                    <Frame x:Name="Feed_Frame" HeightRequest="120" WidthRequest="290" CornerRadius="35" HasShadow="True" Scale="1" Opacity="0.9" BackgroundColor="#7f99f8">
+
+                        <Button ClassId="feedbutton" Pressed="Button_Pressed" Released="Button_Released"/>
+
+                    </Frame>
+
+                    <Label Text="게시물" FontAttributes="Bold" FontSize="25" TranslationX="40" TranslationY="27"/>
+                    <Label Text="- 11월 11일(월) -19..." TranslationX="30" TranslationY="64"/>
+                    <Label Text="- 2학기 학사일정 변..." TranslationX="30" TranslationY="87"/>
+                    <Label Text="- 「2학기 학교장허가..." TranslationX="30" TranslationY="110"/>
+
+                    <Image Source="{local:EmbeddedImage ResourceId=AIO.Images.feeds.png}" Scale="2.5" TranslationX="227" TranslationY="57"/>
+
+                </AbsoluteLayout>
+
+                <AbsoluteLayout x:Name="Calendar" TranslationX="30" TranslationY="440" HeightRequest="160" WidthRequest="330">
+                    <Frame x:Name="Calendar_Frame" HeightRequest="120" WidthRequest="290" CornerRadius="35" HasShadow="True" Scale="1" Opacity="0.9" BackgroundColor="#7f99f8">
+
+                        <Button ClassId="calendarbutton" Pressed="Button_Pressed" Released="Button_Released"/>
+
+
+                    </Frame>
+
+                    <Label Text="일정" FontAttributes="Bold" FontSize="25" TranslationX="40" TranslationY="27"/>
+                    <Label Text="- 다음 교시 : 3교시" TranslationX="30" TranslationY="64"/>
+                    <Label Text="- 다음 과목 : 국어" TranslationX="30" TranslationY="87"/>
+                    <Label Text="- 다음 알림 : 없음" TranslationX="30" TranslationY="110"/>
+                    <Image Source="{local:EmbeddedImage ResourceId=AIO.Images.schedules.png}" Scale="2.5" TranslationX="227" TranslationY="57"/>
+
+                </AbsoluteLayout>
+
+                <AbsoluteLayout x:Name="Message" TranslationX="30" TranslationY="630" HeightRequest="150" WidthRequest="150">
+                    <Frame x:Name = "Message_Frame" HeightRequest="110" WidthRequest="110" CornerRadius="35" HasShadow="True" Opacity="0.9" BackgroundColor="#7f99f8">
+                        <ImageButton ClassId="messagebutton" TranslationY="-5" Source="{local:EmbeddedImage ResourceId=AIO.Images.messages.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Released"/>
+
+                    </Frame>
+                    <Label TranslationX="52" TranslationY="110" Text="메세지" FontAttributes="Bold"/>
+                </AbsoluteLayout>
+
+                <AbsoluteLayout x:Name="Setting" TranslationX="210" TranslationY="630" HeightRequest="150" WidthRequest="150">
+                    <Frame x:Name="Setting_Frame" HeightRequest="110" WidthRequest="110" CornerRadius="35" HasShadow="True" Opacity="0.9" BackgroundColor="#7f99f8">
+                        <ImageButton ClassId="settingbutton" TranslationY="-5" Source="{local:EmbeddedImage ResourceId=AIO.Images.settings.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Released"/>
+
+                    </Frame>
+                    <Label TranslationX="60" TranslationY="110" Text="설정" FontAttributes="Bold"/>
+                </AbsoluteLayout>
+
+            </AbsoluteLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

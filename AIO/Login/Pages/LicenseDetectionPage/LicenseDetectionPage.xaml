@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage NavigationPage.HasNavigationBar="False"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AIO.LicenseDetectionPage"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+
+    <ContentPage.Content>
+        <Grid>
+            <xct:CameraView
+                x:Name="CameraView"
+                CaptureMode="Photo"
+                MediaCaptured="MediaCaptured"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                />
+
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
+                <Label Text="증명 사진으로 로그인" HorizontalTextAlignment="Center" TextColor="Black" Margin="50" FontSize="25" FontAttributes="Bold"/>
+                <Image x:Name="CapturedImage" Opacity="0" Margin="90" TranslationY="-120" HeightRequest="200" WidthRequest="200"/>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="End" Spacing="20" Margin="50">
+                <Frame BackgroundColor="White" Opacity="0.7" HasShadow="False" BorderColor="Black" CornerRadius="20">
+                    <Button x:Name="CaptureImage" Text="사진 촬영" HeightRequest="15" TextColor="Black" Pressed="CaptureImage_Pressed" Released="CaptureImage_Released"/>
+                </Frame>
+                <Frame BackgroundColor="White" Opacity="0.7" HasShadow="False" BorderColor="Black" CornerRadius="20">
+                    <Button x:Name="Function" Text="건너 뛰기" HeightRequest="15" TextColor="Black" Pressed="Function_Pressed" Released="Function_Released"/>
+                </Frame>
+
+            </StackLayout>
+
+            <ActivityIndicator x:Name="loading" HorizontalOptions="Center" VerticalOptions="Center" Scale="3" Color="Black" IsRunning="False" Opacity="0"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+
