@@ -16,7 +16,7 @@
 
         <AbsoluteLayout VerticalOptions="CenterAndExpand" WidthRequest="360" HorizontalOptions="CenterAndExpand">
 
-            <syncfusion:SfCalendar x:Name="sfcalendar" BlackoutDatesViewMode="Stripes" ShowInlineEvents="True" InlineViewMode="Agenda" AgendaViewHeight="150" MaximumEventIndicatorCount="3" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="360" HeightRequest="720" Scale="0.9" MonthChanged="sfcalendar_MonthChanged">
+            <syncfusion:SfCalendar x:Name="sfcalendar" TranslationX="-20" TranslationY="10" BlackoutDatesViewMode="Stripes" ShowInlineEvents="True" InlineViewMode="Agenda" AgendaViewHeight="150" MaximumEventIndicatorCount="3" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="400" HeightRequest="800" Scale="0.9" MonthChanged="sfcalendar_MonthChanged">
                 <syncfusion:SfCalendar.MonthViewSettings>
                     <syncfusion:MonthViewSettings CurrentMonthBackgroundColor="Transparent" PreviousMonthBackgroundColor="Transparent" DayHeaderBackgroundColor="Transparent" InlineBackgroundColor="Transparent" HeaderBackgroundColor="Transparent" TodaySelectionBackgroundColor="#3F51B5"/>
                     <!--<syncfusion:MonthViewSettings CurrentMonthBackgroundColor="Transparent" PreviousMonthBackgroundColor="Transparent" DayHeaderBackgroundColor="Transparent" InlineBackgroundColor="Transparent" HeaderBackgroundColor="Transparent" TodaySelectionBackgroundColor="#3F51B5" CurrentMonthTextColor="White" DayHeaderTextColor="White" HeaderTextColor="White" PreviousMonthTextColor="LightGray" InlineTextColor="White"/>-->
@@ -24,19 +24,19 @@
             </syncfusion:SfCalendar>
 
 
-            <AbsoluteLayout x:Name="Search_frame" HeightRequest="100" TranslationY="-125">
-                <Frame HeightRequest="100" TranslationX="-15" WidthRequest="390" BackgroundColor="#222831" CornerRadius="45" Padding="0"/>
+            <AbsoluteLayout x:Name="Search_frame" HeightRequest="100" TranslationY="-165">
+                <Frame HeightRequest="100" TranslationX="-30" WidthRequest="420" BackgroundColor="#222831" CornerRadius="45" Padding="0"/>
 
-                <Frame TranslationX="50" TranslationY="50" WidthRequest="250" Padding="0" HasShadow="False" BorderColor="Black" CornerRadius="15" BackgroundColor="White" Opacity="0.75">
+                <Frame TranslationX="35" TranslationY="50" WidthRequest="250" Padding="0" HasShadow="False" BorderColor="Black" CornerRadius="15" BackgroundColor="White" Opacity="0.75">
                     <Entry x:Name="SearchEntry" HorizontalTextAlignment="Center" BackgroundColor="Transparent" Placeholder="검색어 입력"/>
                 </Frame>
-                <ImageButton x:Name="goSearch" ClassId="gosearchbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.search.png}" Scale="0.6" TranslationX="300" TranslationY="45" Pressed="SearchButton_Pressed" Released="SearchButton_Released"/>
+                <ImageButton x:Name="goSearch" ClassId="gosearchbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.search.png}" Scale="0.6" TranslationX="290" TranslationY="45" Pressed="SearchButton_Pressed" Released="SearchButton_Released"/>
             </AbsoluteLayout>
 
             <ActivityIndicator x:Name="loading_indicator" IsRunning="True" Scale="3" TranslationX="170" TranslationY="300" Color="Black"/>
         </AbsoluteLayout>
 
-        <Frame BackgroundColor="#b33F51B5" HorizontalOptions="Center" VerticalOptions="End" TranslationY="-50" HeightRequest="76" WidthRequest="320" CornerRadius="25" Padding="0" IsVisible="True">
+        <Frame BackgroundColor="#b33F51B5" HorizontalOptions="Center" VerticalOptions="End" TranslationY="-50" HeightRequest="76" WidthRequest="320" CornerRadius="25" Padding="0" IsVisible="True" Scale="1.1">
             <AbsoluteLayout VerticalOptions="CenterAndExpand">
                 <Frame x:Name="home" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="10">
                     <ImageButton ClassId="homebutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.home.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>

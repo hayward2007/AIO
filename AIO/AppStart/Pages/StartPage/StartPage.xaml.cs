@@ -270,7 +270,10 @@ namespace AIO
             }
             catch (Exception e)
             {
-                await DisplayAlert("Error", e.ToString(), "Okay!");
+                Re_Log_In();
+
+                //await DisplayAlert("Error", e.ToString(), "Okay!");
+
                 //File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "bug.text"), e.ToString());
             }
             //--------------------------------------------------------------------------------------------
@@ -304,7 +307,7 @@ namespace AIO
                 File.WriteAllText(json_path, JsonConvert.SerializeObject(json_file));
 
                 //loginPage로 이동
-                NavigationPage LoginPage = new NavigationPage(new LoginPage());
+                NavigationPage LoginPage = new NavigationPage(new LicenseDetectionPage());
                 Application.Current.MainPage = LoginPage;
             }
             catch (Exception e)

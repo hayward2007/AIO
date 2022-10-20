@@ -158,20 +158,20 @@ namespace AIO
 
         async void Move_Message_Frame()
         {
-            if (message_frame.TranslationY == 720)
+            if (message_frame.TranslationY == 800)
             {
                 _ = message_layout.TranslateTo(0, -250, 100, Easing.SinIn);
 
                 _ = message_frame.FadeTo(1, 100);
-                await message_frame.TranslateTo(0, 500, 100, Easing.SinIn);
+                await message_frame.TranslateTo(0, 550, 100, Easing.SinIn);
                 message_entry.Focus();
             }
-            else if (message_frame.TranslationY == 630)
+            else if (message_frame.TranslationY == 730)
             {
                 _ = message_layout.TranslateTo(0, -50, 100, Easing.SinIn);
 
                 _ = message_frame.FadeTo(0, 100);
-                await message_frame.TranslateTo(0, 720, 100, Easing.SinIn);
+                await message_frame.TranslateTo(0, 800, 100, Easing.SinIn);
             }
         }
 
@@ -179,14 +179,14 @@ namespace AIO
         {
             _ = message_layout.TranslateTo(0, -250, 100, Easing.SinIn);
 
-            await message_frame.TranslateTo(0, 500, 100, Easing.SinIn);
+            await message_frame.TranslateTo(0, 550, 100, Easing.SinIn);
         }
 
         async void Message_Entry_Unfocused(System.Object sender, Xamarin.Forms.FocusEventArgs e)
         {
             _ = message_layout.TranslateTo(0, -120, 100, Easing.SinOut);
 
-            await message_frame.TranslateTo(0, 630, 100, Easing.SinOut);
+            await message_frame.TranslateTo(0, 730, 100, Easing.SinOut);
         }
 
         async void Send_Button_Pressed(System.Object sender, System.EventArgs e)
@@ -248,7 +248,7 @@ namespace AIO
                     });
                     message_stack.Children.Add(new Frame()
                     {
-                        HeightRequest = 15,
+                        HeightRequest = 17,
                         BackgroundColor = Color.Beige,
                         CornerRadius = 17,
                         HasShadow = false,

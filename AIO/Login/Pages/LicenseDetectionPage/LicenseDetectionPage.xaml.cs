@@ -1,18 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
-using Firebase.Storage;
-using FireSharp;
-using FireSharp.Config;
-using FireSharp.Interfaces;
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
-using Microsoft.ProjectOxford.Face;
-using SkiaSharp;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
+using SkiaSharp;
+using SkiaSharp.Views.Forms;
+using System.Drawing;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+using System.Threading;
+using SceneKit;
+using System.ComponentModel;
+using Xamarin.Forms.Shapes;
+using Newtonsoft.Json;
+using FireSharp.Config;
+using FireSharp.Interfaces;
+using JavaScriptCore;
+
 namespace AIO
 {
     public partial class LicenseDetectionPage : ContentPage
@@ -20,21 +26,22 @@ namespace AIO
         public Stream img;
         public string name;
         public string school;
+        //public SKBitmap bitmap;
 
         public const string ApiKey = "bd4d81c272fb4e0e96d734725de4c86f";
         public const string EndPoint = "https://aio-textrecognition.cognitiveservices.azure.com/";
-
-        public IFirebaseClient client = new FirebaseClient(
-        new FirebaseConfig()
-        {
-            AuthSecret = "3Nf7LXCML6UpXudo1qTWPdILga5UStNT8TOeFJ4Z",
-            BasePath = "https://sunae-3cf06-default-rtdb.firebaseio.com/"
-        });
 
         public LicenseDetectionPage()
         {
             InitializeComponent();
         }
+
+        FirebaseConfig server = new FirebaseConfig()
+        {
+            AuthSecret = "3Nf7LXCML6UpXudo1qTWPdILga5UStNT8TOeFJ4Z",
+            BasePath = "https://sunae-3cf06-default-rtdb.firebaseio.com/"
+        };
+        IFirebaseClient rdb_client;
 
         async void CaptureImage_Pressed(System.Object sender, System.EventArgs e)
         {
@@ -59,15 +66,13 @@ namespace AIO
                 await loading.FadeTo(1, 100);
                 try
                 {
-                    //await Recognize_Text();
+                    await Recognize_Text();
                 }
                 catch (Exception k)
                 {
                     await DisplayAlert("Error", k.ToString(), "Okay!");
                 }
             }
-
-            
         }
 
         public async Task Recognize_Text()
@@ -88,9 +93,19 @@ namespace AIO
                 };
 
                 // Recognize Text
+
+                //var stream = new MemoryStream();
+                //await img.CopyToAsync(stream);
+                RegisterPage.user_image = new MemoryStream();
                 await img.CopyToAsync(RegisterPage.user_image);
                 RegisterPage.user_image.Position = 0;
+                //stream.Position = 0;
+
+                //var url = "https://mblogthumb-phinf.pstatic.net/MjAxOTA0MjhfMzYg/MDAxNTU2NDQ2MTM3Mjc1.Y242NW2EsCqzpYooTxA7dcYpRufjqvOeT1jsLTCh45kg.VC89QH4OrqDu1RNsJ7-coEr4jeBTgs7u_R9SjavbIwgg.PNG.sexyhun1983/1.png?type=w800";
+                //var ocrResult = await client.ReadAsync(url);
+
                 var ocrResult = await client.ReadInStreamAsync(RegisterPage.user_image);
+                //var ocrResult = await client.ReadInStreamAsync(stream);
 
 
                 var operationLocation = ocrResult.OperationLocation;
@@ -110,14 +125,9 @@ namespace AIO
                 var textResults = results.AnalyzeResult.ReadResults;
                 var is_certifiated = false;
 
-                var school = string.Empty;
-                var name = string.Empty;
-
                 foreach (Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models.Line line in textResults[0].Lines)
                 {
                     var text = line.Text.Replace(" ", "");
-
-                    //await DisplayAlert("결과", text, "확인");
 
                     if (text == "학생증")
                         is_certifiated = true;
@@ -145,23 +155,103 @@ namespace AIO
                     }
                 }
 
-                await CompareImage(school, name);
+                Console.WriteLine("학생증 인식 완료");
+                Console.WriteLine(name);
+                Console.WriteLine(school);
 
-                //if (!CompareImage())
-                //    GoToLoginPage();
+                if (school.Contains("충"))
+                    school.Replace('충', '중');
+
+
+                rdb_client = new FireSharp.FirebaseClient(server);
+
+                var result = rdb_client.Get("schools/" + App.Static_Encrypt_Key(school) + "/" + App.Static_Encrypt_Key(name) + "/");
+                var data = result.ResultAs<School>();
+
+                Console.WriteLine(data.user_id);
+
+                App.users_data.Clear();
+                var _data = await rdb_client.GetAsync("users/" + data.user_id);
+                Console.WriteLine(_data.Body);
+
+                App.users_data.Add(JsonConvert.DeserializeObject<Upload>(_data.Body));
+
+                Console.WriteLine(App.users_data[0].user_id);
+                Console.WriteLine(App.users_data[0].user_password);
+                Console.WriteLine(App.users_data[0].user_name);
+                Console.WriteLine(App.users_data[0].user_study_info);
+                Console.WriteLine(App.users_data[0].user_phone_number);
+                Console.WriteLine(App.users_data[0].user_birth);
+
+                App.Logined = true;
+                App.user_login_data.Add(new User_Info_Serialize());
+                //메인메뉴페이지로 이동
+                App.user_login_data[0].user_id = App.Static_Decipher_Key(App.users_data[0].user_id);
+                App.user_login_data[0].user_password = App.Dynamic_Decipher_Key(App.users_data[0].user_password);
+                App.user_login_data[0].user_name = App.users_data[0].user_name;
+                App.user_login_data[0].user_birth = App.Static_Decipher_Key(App.users_data[0].user_birth);
+                App.user_login_data[0].user_study_info = App.users_data[0].user_study_info;
+                App.user_login_data[0].user_phone_number = App.Static_Decipher_Key(App.users_data[0].user_phone_number);
+
+                Console.WriteLine(App.user_login_data[0].user_id);
+                Console.WriteLine(App.user_login_data[0].user_password);
+                Console.WriteLine(App.user_login_data[0].user_name);
+                Console.WriteLine(App.user_login_data[0].user_study_info);
+                Console.WriteLine(App.user_login_data[0].user_phone_number);
+                Console.WriteLine(App.user_login_data[0].user_birth);
+
+                //암호화 안된 항목들
+                App.user_login_data[0].Is_Logined = true;
+                App.user_login_data[0].background_color_mode = App.users_data[0].background_color_mode;
+                App.user_login_data[0].background_solid_color = App.users_data[0].background_solid_color;
+                App.user_login_data[0].background_gradient_color = App.users_data[0].background_gradient_color;
+                App.user_login_data[0].button_color_mode = App.users_data[0].button_color_mode;
+                App.user_login_data[0].button_solid_color = App.users_data[0].button_solid_color;
+                App.user_login_data[0].button_gradient_color = App.users_data[0].button_gradient_color;
+
+                File.WriteAllText(App.json_path, Newtonsoft.Json.JsonConvert.SerializeObject(App.user_login_data[0]));
+
+                await DisplayAlert("알림", "로그인하였습니다!", "확인");
+
+                NavigationPage LoginPage = new NavigationPage();
+                NavigationPage MainMenuPage = new NavigationPage(new MainMenuPage());
+                await LoginPage.PushAsync(MainMenuPage);
+                Application.Current.MainPage = MainMenuPage;
+            
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error!", ex.ToString(), "Okay!");
+                var alert = await DisplayAlert("오류!", "학생증을 인식하지 못했습니다", "다시 찍기", "건너 뛰기");
+
+                if (alert)
+                {
+                    _ = loading.FadeTo(0, 100);
+                    await CapturedImage.FadeTo(0, 100);
+                    loading.IsRunning = false;
+
+                    CaptureImage.Text = "사진 촬영";
+                    Function.Text = "다시 촬영하기";
+
+                    return;
+                }
+                //await DisplayAlert("Error!", ex.ToString(), "Okay!");
             }
         }
 
-        public async void GoToLoginPage()
+        public async void GoToRegisterPage()
         {
-            NavigationPage CameraPage = new NavigationPage(new CameraPage());
-            NavigationPage LoginPage = new NavigationPage(new LoginPage());
-            await CameraPage.PushAsync(LoginPage);
-            Application.Current.MainPage = LoginPage;
+            try
+            {
+                NavigationPage CameraPage = new NavigationPage(new CameraPage());
+                NavigationPage RegisterPage = new NavigationPage(new RegisterPage());
+                await CameraPage.PushAsync(RegisterPage);
+                Application.Current.MainPage = RegisterPage;
+            }
+            catch (Exception e)
+            {
+                await DisplayAlert("Error", e.ToString(), "Okay!");
+            }
+
         }
 
         private async void MediaCaptured(object sender, MediaCapturedEventArgs e)
@@ -171,67 +261,15 @@ namespace AIO
             await MinimalizeImage(e.ImageData);
         }
 
-        public async Task CompareImage(string school, string name)
-        {
-            var result = client.Get("schools/" + App.Static_Encrypt_Key(school) + "/" + App.Static_Encrypt_Key(name) + "/");
-            var data = result.ResultAs<List<School>>();
-
-            //var faceServiceClient = new FaceServiceClient("d45992ab8a2c4b56a84ed9e3c2d2b7df");
-
-            //// Step 1 - Create Person Group
-            //var user_group = Guid.NewGuid().ToString();
-            //await faceServiceClient.CreatePersonGroupAsync(name, name + "로그인");
-
-            //// Step 2 - Add persons (and faces) to person group.
-            //foreach (var user in data)
-            //{
-            //    // Step 2a - Create a new person, identified by their name.
-            //    var p = await faceServiceClient.CreatePersonAsync(personGroupId, employee.Name);
-            //    // Step 3a - Add a face for that person.
-            //    await faceServiceClient.AddPersonFaceAsync(personGroupId, p.PersonId, employee.PhotoUrl);
-            //}
-
-            //// Step 3 - Train facial recognition model.
-            //await faceServiceClient.TrainPersonGroupAsync(personGroupId);
-
-
-            //var url = new FirebaseStorage("").Child(school).Child(name).GetDownloadUrlAsync();
-            //var captured_image = new MemoryStream();
-            //img.CopyTo(captured_image);
-            //var compare_image = captured_image.ToArray();
-
-            //var dif_pixel = 0;
-            //for (int i = 0; i < compare_image.Length; i++)
-            //{
-            //    var compare = true;
-
-            //    if (image_byte[i] != compare_image[i])
-            //    {
-            //        dif_pixel++;
-            //        compare = false;
-            //    }
-
-
-            //    Console.WriteLine(compare);
-            //}
-
-            //double accuracity = (captured_image.Length - dif_pixel) / captured_image.Length;
-
-            //if (accuracity > 0.9d)
-            //{
-            //    Console.WriteLine("Login Success!");
-            //    return true;
-            //}
-            //return false;
-
-
-        }
-
         public async Task MinimalizeImage(byte[] bytes)
         {
             try
             {
                 var bitmap = SKBitmap.Decode(bytes);
+
+                Console.WriteLine(bitmap.Width);
+                Console.WriteLine(bitmap.Height);
+
                 var info = new SKImageInfo(bitmap.Width / 10, bitmap.Height / 10);
                 var mini_bitmap = bitmap.Resize(info, SKFilterQuality.Medium);
                 var mini_image = SKImage.FromBitmap(mini_bitmap);
@@ -267,7 +305,7 @@ namespace AIO
 
                     //loginPage로 이동
                     NavigationPage CameraPage = new NavigationPage(new CameraPage());
-                    NavigationPage _RegisterPage = new NavigationPage(new RegisterPage());
+                    NavigationPage _RegisterPage = new NavigationPage(new LoginPage());
                     await CameraPage.PushAsync(_RegisterPage);
                     Application.Current.MainPage = _RegisterPage;
                 }

@@ -440,7 +440,7 @@ namespace AIO
                 File.Delete(App.json_path);
 
                 NavigationPage SettingPage = new NavigationPage(new SettingPage());
-                NavigationPage LoginPage = new NavigationPage(new LoginPage());
+                NavigationPage LoginPage = new NavigationPage(new LicenseDetectionPage());
                 await page.FadeTo(0, 100);
                 await SettingPage.PopToRootAsync();
                 Application.Current.MainPage = LoginPage;

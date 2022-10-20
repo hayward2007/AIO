@@ -35,6 +35,7 @@ namespace AIO
         {
             InitializeComponent();
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjkxMzgwQDMyMzAyZTMyMmUzME1CYkM0a1hscUxwTExwYWNGYzd4ZGZZUUY5TmNJWjBFQlNSWHh6ZTJOdTA9");
+            //MainPage = new NavigationPage(new LicenseDetectionPage());
             //MainPage = new NavigationPage(new CameraPage());
             MainPage = new NavigationPage(new StartPage());
         }
@@ -54,7 +55,7 @@ namespace AIO
                 encrypted_byte_num += ((int)encrypted_byte_hint_num);
                 //Console.WriteLine(encrypted_byte_num);
                 //Console.WriteLine(encrypted_byte_hint_num);
-                encrypted_key_ASCII.Add(((int)encrypted_byte_num));
+                encrypted_key_ASCII.Add(((int)encrypted_byte_num)); 
                 encrypted_key_ASCII.Add(((int)encrypted_byte_hint_num));
                 encrypted_key += (char)encrypted_byte_num;
                 if (encrypted_byte_hint_num.ToString().Length == 1)

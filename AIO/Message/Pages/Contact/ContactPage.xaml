@@ -6,7 +6,7 @@
     x:Class="AIO.ContactPage">
     <ContentPage.Content>
         <AbsoluteLayout>
-            <StackLayout x:Name="contactpage" Opacity="0.5" HeightRequest="845" WidthRequest="390">
+            <StackLayout x:Name="contactpage" Opacity="0.5" HeightRequest="926" WidthRequest="428">
                 <StackLayout.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#834d9b" Offset="0.3"/>
@@ -14,15 +14,15 @@
                     </LinearGradientBrush>
                 </StackLayout.Background>
 
-                <Label HorizontalOptions="Center" TranslationY="80" HeightRequest="20" Text="채팅방" FontSize="Large" FontAttributes="Bold"/>
+                <Label HorizontalOptions="Center" TranslationY="80" HeightRequest="40" Text="채팅방" FontSize="40" FontAttributes="Bold"/>
 
 
-                <ScrollView x:Name="ScrollView" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HeightRequest="570" TranslationY="30">
+                <ScrollView x:Name="ScrollView" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HeightRequest="560" TranslationY="10">
                     <StackLayout x:Name="StackLayout" Spacing="20">
                     </StackLayout>
                 </ScrollView>
 
-                <Frame BackgroundColor="#b33F51B5" HorizontalOptions="Center" VerticalOptions="End" TranslationY="-50" HeightRequest="76" WidthRequest="320" CornerRadius="25" Padding="0" IsVisible="True">
+                <Frame BackgroundColor="#b33F51B5" HorizontalOptions="Center" VerticalOptions="End" TranslationY="-50" HeightRequest="76" WidthRequest="320" CornerRadius="25" Padding="0" IsVisible="True" Scale="1.1">
                     <AbsoluteLayout VerticalOptions="CenterAndExpand">
                         <Frame x:Name="home" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="10">
                             <ImageButton ClassId="homebutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.home.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
@@ -41,15 +41,15 @@
 
             </StackLayout>
 
-            <AbsoluteLayout x:Name="Search_frame" HeightRequest="100" WidthRequest="390" TranslationY="-110">
-                <Frame HeightRequest="100" WidthRequest="390" BackgroundColor="#222831" CornerRadius="45" Padding="0"/>
+            <AbsoluteLayout x:Name="Search_frame" HeightRequest="100" WidthRequest="430" TranslationY="-110">
+                <Frame HeightRequest="100" WidthRequest="430" BackgroundColor="#222831" CornerRadius="45" Padding="0"/>
 
-                <Frame TranslationX="50" TranslationY="50" WidthRequest="250" Padding="0" HasShadow="False" BorderColor="Black" CornerRadius="15" BackgroundColor="White" Opacity="0.75">
+                <Frame TranslationX="50" TranslationY="50" WidthRequest="290" Padding="0" HasShadow="False" BorderColor="Black" CornerRadius="15" BackgroundColor="White" Opacity="0.75">
                     <Entry x:Name="SearchEntry" HorizontalTextAlignment="Center" BackgroundColor="Transparent" Placeholder="검색어 입력"/>
                 </Frame>
-                <ImageButton x:Name="goSearch" ClassId="gosearchbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.search.png}" Scale="0.6" TranslationX="300" TranslationY="45" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+                <ImageButton x:Name="goSearch" ClassId="gosearchbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.search.png}" Scale="0.6" TranslationX="345" TranslationY="45" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
             </AbsoluteLayout>
-            <ActivityIndicator x:Name="loading_indicator" IsRunning="True" Scale="3" TranslationX="185" TranslationY="400" Color="Black"/>
+            <ActivityIndicator x:Name="loading_indicator" IsRunning="True" Scale="3" TranslationX="205" TranslationY="400" Color="Black"/>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

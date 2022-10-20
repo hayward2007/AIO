@@ -108,24 +108,25 @@ namespace AIO
             }
 
 
-            var result = client.Get("schools/" + App.Static_Encrypt_Key(RegisterPage.upload.user_study_info) + "/" + App.Static_Encrypt_Key(RegisterPage.upload.user_name) + "/");
-            var data = result.ResultAs<List<School>>();
+            //var result = client.Get("schools/" + App.Static_Encrypt_Key(RegisterPage.upload.user_study_info) + "/" + App.Static_Encrypt_Key(RegisterPage.upload.user_name) + "/");
+            //var data = result.ResultAs<List<School>>();
 
             
             RegisterPage.upload.user_phone_number = App.Static_Encrypt_Key(user_phone_number.Text);
-            var school = client.Set("schools/" + App.Static_Encrypt_Key(RegisterPage.upload.user_study_info) + "/" + App.Static_Encrypt_Key(RegisterPage.upload.user_name) + "/" + data.Count, RegisterPage.school);
+            var school = client.Set("schools/" + App.Static_Encrypt_Key(RegisterPage.upload.user_study_info) + "/" + App.Static_Encrypt_Key(RegisterPage.upload.user_name) + "/" // + data.Count
+                , RegisterPage.school);
             var users = client.Set("users/" + RegisterPage.upload.user_id, RegisterPage.upload);
 
-            var faceServiceClient = new FaceServiceClient("d45992ab8a2c4b56a84ed9e3c2d2b7df");
+            //var faceServiceClient = new FaceServiceClient("d45992ab8a2c4b56a84ed9e3c2d2b7df");
 
-            if(faceServiceClient.GetPersonsAsync(App.Static_Encrypt_Key(RegisterPage.upload.user_name)) == null)
-            {
-                await faceServiceClient.CreatePersonGroupAsync(App.Static_Encrypt_Key(RegisterPage.upload.user_name), RegisterPage.upload.user_name + "로그인");
-            }
+            //if(faceServiceClient.GetPersonsAsync(App.Static_Encrypt_Key(RegisterPage.upload.user_name)) == null)
+            //{
+            //    await faceServiceClient.CreatePersonGroupAsync(App.Static_Encrypt_Key(RegisterPage.upload.user_name), RegisterPage.upload.user_name + "로그인");
+            //}
 
-            var p = await faceServiceClient.CreatePersonAsync(App.Static_Encrypt_Key(RegisterPage.upload.user_name), RegisterPage.upload.user_id);
+            //var p = await faceServiceClient.CreatePersonAsync(App.Static_Encrypt_Key(RegisterPage.upload.user_name), RegisterPage.upload.user_id);
            
-            await faceServiceClient.AddPersonFaceAsync(App.Static_Encrypt_Key(RegisterPage.upload.user_name), p.PersonId, new MemoryStream(RegisterPage.school.user_image));
+            //await faceServiceClient.AddPersonFaceAsync(App.Static_Encrypt_Key(RegisterPage.upload.user_name), p.PersonId, new MemoryStream(RegisterPage.school.user_image));
 
 
 

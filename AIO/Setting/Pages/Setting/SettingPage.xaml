@@ -15,7 +15,7 @@
             </LinearGradientBrush>
         </AbsoluteLayout.Background>
 
-       <ScrollView HeightRequest="845" WidthRequest="390">
+       <ScrollView HeightRequest="797" WidthRequest="430">
             <StackLayout Spacing="30">
                 <AbsoluteLayout HorizontalOptions="CenterAndExpand">
                     <Frame WidthRequest="260" HeightRequest="307" CornerRadius="30" BackgroundColor="Beige"/>
@@ -87,7 +87,8 @@
 
             </StackLayout>
         </ScrollView>
-        <Frame BackgroundColor="#b33F51B5" HorizontalOptions="Center" VerticalOptions="End" TranslationX="35" TranslationY="719" HeightRequest="76" WidthRequest="320" CornerRadius="25" Padding="0" IsVisible="True">
+
+        <Frame BackgroundColor="#b33F51B5" HorizontalOptions="Center" VerticalOptions="End" TranslationX="55" TranslationY="800" HeightRequest="76" WidthRequest="320" CornerRadius="25" Padding="0" IsVisible="True" Scale="1.1">
             <AbsoluteLayout VerticalOptions="CenterAndExpand">
                 <Frame x:Name="home" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="10">
                     <ImageButton ClassId="homebutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.home.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>

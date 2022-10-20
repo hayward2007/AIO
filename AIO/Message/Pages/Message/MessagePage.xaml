@@ -14,16 +14,16 @@
                 </LinearGradientBrush>
             </StackLayout.Background>
 
-            <AbsoluteLayout HorizontalOptions="CenterAndExpand" HeightRequest="760" WidthRequest="320">
+            <AbsoluteLayout HorizontalOptions="CenterAndExpand" HeightRequest="900" WidthRequest="350">
 
-                <Label x:Name="Room" Text="Room1" WidthRequest="320" FontSize="30" FontAttributes="Bold" TranslationY="60" HorizontalTextAlignment="Center"/>
+                <Label x:Name="Room" Text="Room1" WidthRequest="350" FontSize="30" FontAttributes="Bold" TranslationY="60" HorizontalTextAlignment="Center"/>
 
-                <ScrollView x:Name="Message_ScrollView" TranslationY="120" TranslationX="10" HeightRequest="580" WidthRequest="300">
+                <ScrollView x:Name="Message_ScrollView" TranslationY="100" TranslationX="10" HeightRequest="690" WidthRequest="330">
                     <StackLayout x:Name="Message_StackLayout" Spacing="10">
                     </StackLayout>
                 </ScrollView>
 
-                <Frame x:Name="Message_Frame" Opacity="0" TranslationY="720" HeightRequest="50" WidthRequest="320" CornerRadius="25" Padding="0" BackgroundColor="Beige" HasShadow="False">
+                <Frame x:Name="Message_Frame" Opacity="0" TranslationY="800" HeightRequest="50" WidthRequest="350" CornerRadius="25" Padding="0" BackgroundColor="Beige" HasShadow="False">
                     <StackLayout Orientation="Horizontal" WidthRequest="320" Spacing="-10">
                         <Frame HorizontalOptions="CenterAndExpand" VerticalOptions="Center" WidthRequest="220" HeightRequest="30" Padding="0" HasShadow="False" BorderColor="Black" CornerRadius="15" BackgroundColor="White" Opacity="0.75">
                             <Entry x:Name="Message_Entry" Keyboard="Chat" Placeholder="메세지 입력" HorizontalTextAlignment="Center" BackgroundColor="Transparent" Focused="Message_Entry_Focused" Unfocused="Message_Entry_Unfocused"/>
@@ -32,12 +32,12 @@
                     </StackLayout>
                 </Frame>
 
-                <ActivityIndicator x:Name="loading_indicator" IsRunning="True" Scale="3" TranslationX="155" TranslationY="400" Color="Black"/>
+                <ActivityIndicator x:Name="loading_indicator" IsRunning="True" Scale="3" TranslationX="170" TranslationY="400" Color="Black"/>
                 
             </AbsoluteLayout>
 
 
-            <Frame BackgroundColor="#b33F51B5" HorizontalOptions="Center" VerticalOptions="End" TranslationY="-50" HeightRequest="76" WidthRequest="320" CornerRadius="25" Padding="0" IsVisible="True">
+            <Frame BackgroundColor="#b33F51B5" HorizontalOptions="Center" VerticalOptions="End" TranslationY="-50" HeightRequest="76" WidthRequest="320" CornerRadius="25" Padding="0" IsVisible="True" Scale="1.1">
                 <AbsoluteLayout VerticalOptions="CenterAndExpand">
                     <Frame x:Name="home" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="10">
                         <ImageButton ClassId="homebutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.home.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>

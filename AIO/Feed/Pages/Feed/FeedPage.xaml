@@ -15,13 +15,13 @@
                 </LinearGradientBrush>
             </AbsoluteLayout.Background>
 
-            <ScrollView x:Name="ScrollView"  HeightRequest="845" WidthRequest="390" Scrolled="ScrollView_Scrolled">
-                <StackLayout x:Name="feedlayout" Spacing="65">
+            <ScrollView x:Name="ScrollView"  HeightRequest="800" WidthRequest="430" Scrolled="ScrollView_Scrolled">
+                <StackLayout x:Name="feedlayout" Spacing="65" Scale="1" TranslationY="20">
                 </StackLayout>
             </ScrollView>
 
 
-            <Frame BackgroundColor="#b33F51B5" HorizontalOptions="Center" VerticalOptions="End" TranslationX="35" TranslationY="719" HeightRequest="76" WidthRequest="320" CornerRadius="25" Padding="0" IsVisible="True">
+            <Frame BackgroundColor="#b33F51B5" HorizontalOptions="Center" VerticalOptions="End" TranslationX="55" TranslationY="800" HeightRequest="76" WidthRequest="320" CornerRadius="25" Padding="0" IsVisible="True" Scale="1.1">
                 <AbsoluteLayout VerticalOptions="CenterAndExpand">
                     <Frame x:Name="home" WidthRequest="60" HeightRequest="60" CornerRadius="20" Padding="0" BackgroundColor="Beige" TranslationX="10">
                         <ImageButton ClassId="homebutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.home.png}" Scale="0.8" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
@@ -38,13 +38,13 @@
                 </AbsoluteLayout>
             </Frame>
 
-            <AbsoluteLayout x:Name="Search_frame" HeightRequest="100" WidthRequest="390" TranslationY="-110">
-                <Frame HeightRequest="100" WidthRequest="390" BackgroundColor="#222831" CornerRadius="45" Padding="0"/>
-                <Entry x:Name="writeSearch" WidthRequest="250" TranslationX="50" TranslationY="50" BackgroundColor="#676D78" Placeholder="제목 검색"/>
-                <ImageButton x:Name="goSearch" ClassId="gosearchbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.search.png}" Scale="0.6" TranslationX="300" TranslationY="45" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
+            <AbsoluteLayout x:Name="Search_frame" HeightRequest="100" WidthRequest="430" TranslationY="-110">
+                <Frame HeightRequest="100" WidthRequest="430" BackgroundColor="#222831" CornerRadius="45" Padding="0"/>
+                <Entry x:Name="writeSearch" HorizontalTextAlignment="Center" WidthRequest="300" TranslationX="50" TranslationY="50" BackgroundColor="#676D78" Placeholder="제목 검색"/>
+                <ImageButton x:Name="goSearch" ClassId="gosearchbutton" Source="{local:EmbeddedImage ResourceId=AIO.Images.search.png}" Scale="0.6" TranslationX="350" TranslationY="45" Pressed="ImageButton_Pressed" Released="ImageButton_Realeased"/>
             </AbsoluteLayout>
 
-            <ActivityIndicator x:Name="loading_indicator" IsRunning="True" Scale="3" TranslationX="185" TranslationY="400" Color="Black"/>
+            <ActivityIndicator x:Name="loading_indicator" IsRunning="True" Scale="3" TranslationX="205" TranslationY="400" Color="Black"/>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

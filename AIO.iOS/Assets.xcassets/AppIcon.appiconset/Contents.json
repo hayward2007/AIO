@@ -1,13 +1,13 @@
 {
   "images" : [
     {
-      "filename" : "Icon40.png",
+      "filename" : "AIO icon 40.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "Icon60.png",
+      "filename" : "AIO icon 60.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
@@ -25,25 +25,25 @@
       "size" : "29x29"
     },
     {
-      "filename" : "Icon80.png",
+      "filename" : "AIO icon 80.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "Icon120.png",
+      "filename" : "AIO icon 120-1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "Icon120.png",
+      "filename" : "AIO icon 120.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "icon180.png",
+      "filename" : "AIO icon 180.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
